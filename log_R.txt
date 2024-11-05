@@ -1,3 +1,8 @@
+THIS IS FOR LINUX
+
+miniconda is a small installer
+bashrc is where my computer knows how to find programmes like conda
+this lets me install enough packages to run the basic graphs here
 
 $
 mkdir -p ~/miniconda3

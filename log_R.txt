@@ -1,9 +1,15 @@
-THIS IS FOR LINUX
+THESE INSTRUCTIONS ARE FOR LINUX
+
+#Miniconda
 
 miniconda is a small installer
 it can install R
-bashrc is where my computer knows how to find programmes like miniconda
-bashrc has a vraible called "PATH"
+
+# bashrc
+
+bashrc is where my computer defines PATH
+PATH states where to find programmes like miniconda
+bashrc has the variable called "PATH"
 this lets me install enough packages to run the basic graphs here
 
 $

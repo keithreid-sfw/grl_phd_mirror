@@ -21,6 +21,8 @@ rm ~/miniconda3/miniconda.sh
 edit bashrc as usual
 PATH="/home/MYNAME/miniconda3/bin:$PATH"
 
+close terminal down and re open it
+
 $conda install -c r r-irkernel
 
 ---

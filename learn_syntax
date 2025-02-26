@@ -1,0 +1,37 @@
+# name <- function(arguments) {
+# body
+#}
+
+# model
+
+# view
+
+# control
+
+# test
+
+main <- function() {
+
+  s <- 4
+  t <- 5
+  n <- s+t
+  r <- 7
+  
+
+  options <- list(list(0,1),list(1,0),list(1,1))
+
+  print(str(options))
+
+}
+
+main()
+
+# if(something == FALSE){
+#   stop("error message to print")   
+#}
+
+tests <- function() {
+
+}
+
+tests()

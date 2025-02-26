@@ -4,6 +4,10 @@
 
 # model
 
+init_options <- function() {
+  options <- list(list(0,1),list(1,0),list(1,1))
+}
+
 # view
 
 # control
@@ -17,9 +21,7 @@ main <- function() {
   n <- s+t
   r <- 7
   
-
-  options <- list(list(0,1),list(1,0),list(1,1))
-
+  options = init_options()
   print(str(options))
 
 }
@@ -30,7 +32,15 @@ main()
 #   stop("error message to print")   
 #}
 
+
 tests <- function() {
+
+  options = init_options()
+  if(!inherits(options, "list")) {
+    stop("options should be a list")   
+  } else {
+    print("options passed inheritance")
+  }
 
 }
 

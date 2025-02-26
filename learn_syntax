@@ -2,7 +2,7 @@
 
 setClass("Config", representation(testing = "character", visuality = "numeric"))
 
-config <- new("Config", testing = "yes", visuality = 0)
+config <- new("Config", testing = "no", visuality = 0)
 
 # model
 
@@ -15,21 +15,30 @@ init_options <- function() {
 # control
 
 main <- function() {
+  print(config)
   s <- 4
   t <- 5
   n <- s+t
   r <- 7
   options = init_options()
-  print(str(options))
+  #print(str(options))
 }
 main()
 
 tests <- function() {
-  options = init_options()
-  if(!inherits(options, "list")) {
-    stop("options should be a list")   
-  } else {
-    print("options passed inheritance")
+  if (config@testing == "yes") {
+
+    options = init_options()
+    if(!inherits(options, "list")) {
+      stop("options should be a list")}   
+    else {
+      print("options passed inheritance")}
+  
+  }
+
+
+  else {
+    print("not testing")
   }
 }
 tests()

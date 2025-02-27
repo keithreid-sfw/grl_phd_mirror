@@ -1,8 +1,30 @@
 # classes
 
-setClass("Config", representation(testing = "character", visuality = "numeric"))
+setClass("Config",
+         representation(verbose   = "logical",
+                        visual    = "logical",
+                        testing   = "logical"))
 
-config <- new("Config", testing = "no", visuality = 0)
+# config
+
+set_config <- function() {
+  config <- new("Config", verbose   = FALSE,
+                          visual    = FALSE,
+                          testing   = TRUE)
+}
+
+# variable settings
+get_r <- function () {
+  r <- 7 # based on CGI
+}
+
+get_s <- function () {
+  s <- 4
+}
+
+get_t <- function () {
+  t <- 5
+}
 
 # model
 
@@ -12,43 +34,64 @@ init_options <- function() {
 
 # view
 
+maybe_tell_config <- function(config) {
+  if (config@verbose) {
+    print("here is the configuration")
+    print(str(config))
+  } else {
+    print("config not verbose")
+  }
+}
+
+maybe_tell_options <- function (config, options) {
+  if (config@verbose) {
+    print(str(options))
+  }
+}
+
 # control
 
 main <- function() {
-  print(config)
-  s <- 4
-  t <- 5
-  n <- s+t
-  r <- 7
+  
+  # set up the primitive invariants
+  config <- set_config()
+  maybe_tell_config(config)
+  
   options = init_options()
-  #print(str(options))
+  maybe_tell_options(config, options)
+  
+  r <- get_r()
+  s <- get_s()
+  t <- get_t()
+  
+  # derive secondary invariants
+  
+  n <- s + t
+  
+  
 }
+
 main()
 
-tests <- function() {
-  if (config@testing == "yes") {
-
-    options = init_options()
-    if(!inherits(options, "list")) {
-      stop("options should be a list")}   
-    else {
-      print("options passed inheritance")}
-  
+test_init_options <- function() {
+  options = init_options()
+  if(!inherits(options, "list")) {
+    stop("options should be a list")}   
+  else {
+    print("options passed inheritance")
   }
+}
 
-
+maybe_tests <- function() {
+  config <- set_config()
+  if (config@testing) {
+    print("testing")
+    test_init_options()
+    print("passed all tests")
+  }
   else {
     print("not testing")
   }
 }
-tests()
 
-# aides memoires
-
-# name <- function(arguments) {
-# body
-#}
-
-# if(something == FALSE){
-#   stop("error message to print")   
-#}
+maybe_tests()

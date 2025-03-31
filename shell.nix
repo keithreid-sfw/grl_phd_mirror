@@ -41,5 +41,6 @@ in pkgs.mkShell {
 
 }
 
+# this should work in NixOS but there are janky grpahics driveres issues on ubuntu 
 # could be a fix for ubuntu at https://github.com/numtide/nix-gl-host
 
